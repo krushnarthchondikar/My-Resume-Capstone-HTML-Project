@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Krushnarth Chondikar's Resume</title>
 	<title>Total Visitor Count</title>
+	
     </head>
 
     <body>
@@ -237,27 +238,22 @@ a:hover {
                 <li><a href="https://krushnarthchondikar.github.io/html-portfolio/"> My HTML Portfolio (Beginner) </a></li>
                 <li><a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/"> My Resume </a></li>
             </ol>
+
 	    
 <script>
-// Function to fetch and update the visitor count
+// Initialize the visitor count
+let visitorCount = 0;
+
+// Function to update the visitor count and display it
 function updateVisitorCount() {
-  // You can replace this URL with your own backend endpoint to fetch the count
-  fetch('https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/getVisitorCount')
-    .then(response => response.json())
-    .then(data => {
-      // Update the count on the HTML page
-      document.getElementById('visitorCount').textContent = data.count;
-    })
-    .catch(error => {
-      console.error('Error fetching visitor count:', error);
-    });
+  // Increment the count
+  visitorCount++;
+  // Update the count on the HTML page
+  document.getElementById('visitorCount').textContent = visitorCount;
 }
 
-// Call the function initially to load the count
+// Call the function to update the count
 updateVisitorCount();
-
-// You can also call this function periodically to update the count
-// setInterval(updateVisitorCount, 1000); // Update every 1 seconds, for example
 </script>
 
 	    
