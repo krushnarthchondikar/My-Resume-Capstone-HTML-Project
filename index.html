@@ -236,28 +236,54 @@ a:hover {
             </ol>
 	    
 
-
   <div id="visitor-count"></div>
 
   <script>
-    function getServerSideVisitorId() {
-      return localStorage.getItem('visitorId') || fetch('/get-visitor-id').then(res => res.text());
+    // Function to set a cookie
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
 
-    getServerSideVisitorId().then(visitorId => {
-      const hasVisited = localStorage.getItem(visitorId);
-      let count = hasVisited ? parseInt(hasVisited) : 0;
-
-      if (!hasVisited) {
-        count++; // Increment count for new visitors
-        localStorage.setItem(visitorId, count); // Store visitor id and count
+    // Function to get a cookie value
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
       }
+      return null;
+    }
 
-      document.getElementById('visitor-count').textContent = `Total visitor's count: ${count}`;
-    });
+    // Function to check if the visitor has already visited
+    function hasVisited() {
+      return getCookie('visited') !== null;
+    }
+
+    // Function to track unique visitors
+    function trackVisitor() {
+      if (!hasVisited()) {
+        setCookie('visited', 'true', 365); // Set a cookie for one year
+        fetch('/increment-visitor-count') // Call server-side logic to increment count
+          .then(response => response.text())
+          .then(count => {
+            document.getElementById('visitor-count').textContent = `Visitor's count: ${count}`;
+          })
+          .catch(error => console.error('Error:', error));
+      }
+    }
+
+    trackVisitor(); // Call the function when the page loads
   </script>
-	    
 
+	
 <style>
   #visitor-count {
     position: fixed;
