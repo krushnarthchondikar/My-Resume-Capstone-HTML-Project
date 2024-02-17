@@ -236,40 +236,33 @@ a:hover {
             </ol>
 	    
 
- Visitors: <span id="visitor-count"></span></h1>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script>
-    // Replace with your server API endpoint URL
-    const visitorApiUrl = 'https://your-server-api.com/get-visitor-id';
+<p>Total visitors: <span id="visitorCount">0</span></p>
 
-    // Function to fetch visitor ID and total count from server
-    function getVisitorInfo() {
-      fetch(visitorApiUrl)
-        .then(response => response.json())
-        .then(data => {
-          const visitorId = data.id;
-          const totalCount = data.totalCount;
 
-          // Update stored ID locally to avoid unnecessary fetches (optional)
-          localStorage.setItem('visitorId', visitorId);
+<script>
+// Function to fetch and update the visitor count
+function updateVisitorCount() {
+  // You can replace this URL with your own backend endpoint to fetch the count
+  fetch('https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/getVisitorCount')
+    .then(response => response.json())
+    .then(data => {
+      // Update the count on the HTML page
+      document.getElementById('visitorCount').textContent = data.count;
+    })
+    .catch(error => {
+      console.error('Error fetching visitor count:', error);
+    });
+}
 
-          // Check if new visitor (no stored ID or no existingVisitor flag)
-          if (!localStorage.getItem('existingVisitor') || !localStorage.getItem('visitorId')) {
-            // Update stored value to indicate not a new visitor
-            localStorage.setItem('existingVisitor', true);
+// Call the function initially to load the count
+updateVisitorCount();
 
-            // Send information to server to track unique visitor
-            // (add your server-side logic here to register new visitor)
-          }
+// You can also call this function periodically to update the count
+// setInterval(updateVisitorCount, 5000); // Update every 5 seconds, for example
+</script>
 
-          document.getElementById('visitor-count').textContent = totalCount;
-        })
-        .catch(error => console.error('Error fetching visitor data:', error));
-    }
-
-    // Call the function on page load or when needed
-    getVisitorInfo();
-  </script>
 
 	    
     </body>
