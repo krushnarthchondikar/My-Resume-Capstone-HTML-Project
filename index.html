@@ -191,15 +191,25 @@
 	    <div id="visitor-count"></div>
 
 <script>
-  let count = localStorage.getItem('visitorCount') || 0;
-  count++;
-  localStorage.setItem('visitorCount', count);
+  // Check if "visitorId" cookie exists from server-side validation
+  const visitorId = document.cookie.split(';').find(c => c.startsWith('visitorId='));
+
+  let count;
+  if (visitorId) {
+    // Existing visitor, set count from server-side cookie
+    count = parseInt(visitorId.split('=')[1]);
+  } else {
+    // New visitor, generate unique ID and send to server for cookie creation
+    count = 1;
+    document.cookie = `visitorId=${Date.now()}`; // Replace with server-side validation
+  }
+
+  // Display and update count in localStorage for same-session counting
   document.getElementById('visitor-count').textContent = `You are visitor number ${count}`;
+  localStorage.setItem('visitorCount', count);
 </script>
+
 	    
-
-
-
 	    
     </body>
 </html>
