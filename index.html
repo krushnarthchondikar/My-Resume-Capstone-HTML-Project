@@ -188,15 +188,31 @@
                 <li><a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/"> My Resume </a></li>
             </ol>
 	    
-	    fetch('/count')
-  .then(response => response.text())
-  .then(count => {
-    document.getElementById('visitor-count').textContent = `You are visitor number ${count}`;
-  });
 
-	    
+<!DOCTYPE html>
+<html>
+<head>
+<title>Website Visitor Count</title>
+<script>
+  let visitCount = localStorage.getItem('visitCount') || 0; // Retrieve from localStorage
+  
+  // Check if cookie exists (indicates initial visit)
+  const hasVisited = document.cookie.split(';').some(c => c.startsWith('visited='));
+  if (!hasVisited) {
+    document.cookie = "visited=true"; // Set cookie for future visits
+    visitCount++; // Increment for new visitor
+    localStorage.setItem('visitCount', visitCount); // Update localStorage
+  }
 
-	    
+  // Display the visit count
+  document.getElementById('visitor-count').textContent = `You have visited this page ${visitCount} times`;
+</script>
+</head>
+<body>
+<div id="visitor-count"></div>
+</body>
+</html>
+
 	    
     </body>
 </html>
