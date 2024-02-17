@@ -188,48 +188,12 @@
                 <li><a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/"> My Resume </a></li>
             </ol>
 	    
-	    <div id="visitor-count"></div>
+	    fetch('/count')
+  .then(response => response.text())
+  .then(count => {
+    document.getElementById('visitor-count').textContent = `You are visitor number ${count}`;
+  });
 
-<script>
-  // Check if "visitorId" cookie exists from server-side validation
-  const visitorId = document.cookie.split(';').find(c => c.startsWith('visitorId='));
-
-  let count;
-  if (visitorId) {
-    // Existing visitor, set count from server-side cookie
-    count = parseInt(visitorId.split('=')[1]);
-  } else {
-    // New visitor, generate unique ID and send to server for cookie creation
-    count = 1;
-    document.cookie = `visitorId=${Date.now()}`; // Replace with server-side validation
-  }
-
-  // Display and update count in localStorage for same-session counting
-  document.getElementById('visitor-count').textContent = `You are visitor number ${count}`;
-  localStorage.setItem('visitorCount', count);
-</script>
-
-	    
-	    <div id="member-count"></div>
-
-<script>
-  // Check if member is logged in (replace with your login logic)
-  const isMember = (/* your member check logic */);
-
-  let count;
-  if (isMember) {
-    // Member session, retrieve count from sessionStorage
-    count = parseInt(sessionStorage.getItem('memberCount')) || 0;
-    count++;
-    sessionStorage.setItem('memberCount', count);
-  } else {
-    // Non-member visitor, no session count
-    count = 0;
-  }
-
-  // Display count
-  document.getElementById('member-count').textContent = `Member visit count: ${count}`;
-</script>
 	    
 
 	    
