@@ -257,6 +257,28 @@ a:hover {
     document.getElementById('visitor-count').textContent = `Visitor's count: ${count}`;
   });
 </script>
+
+  <div id="visitor-count"></div>
+
+  <script>
+    function getServerSideVisitorId() {
+      return localStorage.getItem('visitorId') || fetch('/get-visitor-id').then(res => res.text());
+    }
+
+    getServerSideVisitorId().then(visitorId => {
+      const hasVisited = localStorage.getItem(visitorId);
+      let count = hasVisited ? parseInt(hasVisited) : 0;
+
+      if (!hasVisited) {
+        count++; // Increment count for new visitors
+        localStorage.setItem(visitorId, count); // Store visitor id and count
+      }
+
+      document.getElementById('visitor-count').textContent = `Total visitor's count: ${count}`;
+    });
+  </script>
+	    
+
 <style>
   #visitor-count {
     position: fixed;
