@@ -236,56 +236,15 @@ a:hover {
             </ol>
 	    
 
-  <div id="visitor-count">Visitor's count: Loading...</div>
+  <div id="visitor-count"></div>
 
-  <script>
-    function setCookie(name, value, days) {
-      var expires = "";
-      if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-      }
-      document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    }
+<script>
+  let count = localStorage.getItem('visitorCount') || 0;
+  count++;
+  localStorage.setItem('visitorCount', count);
+  document.getElementById('visitor-count').textContent = `You are visitor number ${count}`;
+</script>
 
-    function getCookie(name) {
-      var nameEQ = name + "=";
-      var ca = document.cookie.split(';');
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-      }
-      return null;
-    }
-
-    function hasVisited() {
-      return getCookie('visited') !== null;
-    }
-
-    function trackVisitor() {
-      if (!hasVisited()) {
-        setCookie('visited', 'true', 365);
-      }
-      fetch('/get-visitor-count')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.text();
-        })
-        .then(count => {
-          document.getElementById('visitor-count').textContent = `Visitor's count: ${count}`;
-        })
-        .catch(error => {
-          console.error('Error fetching visitor count:', error);
-          document.getElementById('visitor-count').textContent = `Visitor's count: Error`;
-        });
-    }
-
-    trackVisitor();
-  </script>
 	
 	
 <style>
