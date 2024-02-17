@@ -187,7 +187,20 @@
                 <li><a href="https://krushnarthchondikar.github.io/html-portfolio/"> My HTML Portfolio (Beginner) </a></li>
                 <li><a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/"> My Resume </a></li>
             </ol>
+	    
+	    <div id="visitor-count"></div>
 
+<script>
+  let count = localStorage.getItem('visitorCount') || 0;
+  count++;
+  localStorage.setItem('visitorCount', count);
+  document.getElementById('visitor-count').textContent = `You are visitor number ${count}`;
+</script>
+	    
+
+
+
+	    
     </body>
 </html>
 
