@@ -267,26 +267,26 @@ a:hover {
     function trackVisitor() {
       if (!hasVisited()) {
         setCookie('visited', 'true', 365);
-        fetch('/increment-visitor-count')
-          .then(response => response.text())
-          .then(count => {
-            document.getElementById('visitor-count').textContent = `Visitor's count: ${count}`;
-          })
-          .catch(error => console.error('Error:', error));
-      } else {
-        // If the visitor has already visited, fetch and display the current count
-        fetch('/get-visitor-count')
-          .then(response => response.text())
-          .then(count => {
-            document.getElementById('visitor-count').textContent = `Visitor's count: ${count}`;
-          })
-          .catch(error => console.error('Error:', error));
       }
+      fetch('/get-visitor-count')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .then(count => {
+          document.getElementById('visitor-count').textContent = `Visitor's count: ${count}`;
+        })
+        .catch(error => {
+          console.error('Error fetching visitor count:', error);
+          document.getElementById('visitor-count').textContent = `Visitor's count: Error`;
+        });
     }
 
     trackVisitor();
   </script>
-
+	
 	
 <style>
   #visitor-count {
