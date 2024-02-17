@@ -236,27 +236,6 @@ a:hover {
             </ol>
 	    
 
-<div id="visitor-count"></div>
-
-<script>
-  // Use server-side unique IDs for accurate visitor counting
-  // Replace `getServerSideVisitorId` with your actual implementation
-  function getServerSideVisitorId() {
-    // Fetch the unique ID from your server-side script (e.g., via an API call)
-    // This is where you would implement logic to generate and store IDs on the server
-    return localStorage.getItem('visitorId') || fetch('/get-visitor-id').then(res => res.text());
-  }
-
-  getServerSideVisitorId().then(visitorId => {
-    const hasVisited = localStorage.getItem(visitorId); // Check if this visitor has visited before
-    let count = hasVisited ? parseInt(hasVisited) : 1; // Increment for new visitors, retrieve for existing ones
-
-    // Store in localStorage for session-like behavior (optional)
-    localStorage.setItem(visitorId, count);
-
-    document.getElementById('visitor-count').textContent = `Visitor's count: ${count}`;
-  });
-</script>
 
   <div id="visitor-count"></div>
 
