@@ -239,35 +239,28 @@ a:hover {
  <div id="visitor-count"></div>
 
 <script>
-  // Check if the visitor count has already been set
-  let count = localStorage.getItem('visitorCount');
+  // Replace with your server API endpoint
+  const visitorApiUrl = '/get-visitor-id';
 
-  // If the count is not set, initialize it to 1
-  if (count === null) {
-    count = 1;
-    localStorage.setItem('visitorCount', count);
-  } else {
-    // If the count is set, parse it as an integer
-    count = parseInt(count);
-  }
+  fetch(visitorApiUrl)
+    .then(response => response.json())
+    .then(data => {
+      const visitorId = data.id;
+      const totalCount = data.totalCount;
 
-  // Display the visitor count
-  document.getElementById('visitor-count').textContent = `You are visitor number ${count}`;
+      // Store the ID (e.g., in localStorage) to avoid unnecessary fetches
+      localStorage.setItem('visitorId', visitorId);
+
+      // Check if new visitor (no stored ID)
+      if (!localStorage.getItem('existingVisitor')) {
+        // Update stored value to indicate not a new visitor
+        localStorage.setItem('existingVisitor', true);
+
+        // Display personalized message and update total count
+        document.getElementById('visitor-count').textContent = `You are visitor number ${totalCount}`;
+      }
+    });
 </script>
-
-
-	
-<style>
-  #visitor-count {
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 10px; /* Adjust padding as needed */
-    background-color: #f0f0f0; /* Optional background color */
-    font-size: 16px;
-    color: #333;
-  }
-</style>
 
 	    
     </body>
