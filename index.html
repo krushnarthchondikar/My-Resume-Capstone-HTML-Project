@@ -210,6 +210,29 @@
 </script>
 
 	    
+	    <div id="member-count"></div>
+
+<script>
+  // Check if member is logged in (replace with your login logic)
+  const isMember = (/* your member check logic */);
+
+  let count;
+  if (isMember) {
+    // Member session, retrieve count from sessionStorage
+    count = parseInt(sessionStorage.getItem('memberCount')) || 0;
+    count++;
+    sessionStorage.setItem('memberCount', count);
+  } else {
+    // Non-member visitor, no session count
+    count = 0;
+  }
+
+  // Display count
+  document.getElementById('member-count').textContent = `Member visit count: ${count}`;
+</script>
+	    
+
+	    
 	    
     </body>
 </html>
