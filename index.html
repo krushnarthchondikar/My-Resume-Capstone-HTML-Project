@@ -236,17 +236,32 @@ a:hover {
             </ol>
 	    
 
-  <<div id="visitor-count"></div>
+  <div id="visitor-count"></div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    let count = localStorage.getItem('visitorCount') || 0;
-    count++;
-    localStorage.setItem('visitorCount', count);
-    document.getElementById('visitor-count').textContent = `You are visitor number ${count}`;
+// Replace with your server API endpoint
+const visitorApiUrl = '/get-visitor-id';
+
+fetch(visitorApiUrl)
+  .then(response => response.json())
+  .then(data => {
+    const visitorId = data.id;
+    const totalCount = data.totalCount;
+
+    // Store the ID (e.g., in localStorage) to avoid unnecessary fetches
+    localStorage.setItem('visitorId', visitorId);
+
+    // Check if new visitor (no stored ID)
+    if (!localStorage.getItem('existingVisitor')) {
+      // Update stored value to indicate not a new visitor
+      localStorage.setItem('existingVisitor', true);
+
+      // Display personalized message and update total count
+      document.getElementById('visitor-count').textContent = `You are visitor number ${totalCount}`;
+    }
   });
 </script>
-	
+
 	
 <style>
   #visitor-count {
