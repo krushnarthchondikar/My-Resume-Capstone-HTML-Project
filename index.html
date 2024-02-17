@@ -32,40 +32,41 @@
 <hr />
 
 <style>
-  .container {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent elements from wrapping onto multiple lines */
-    margin: 10px;
-  }
+.container {
+  display: flex;
+  justify-content: space-between; /* Align elements at opposite ends */
+  align-items: center; /* Vertically align photo and text */
+  margin: 10px;
+}
 
-  .photo-container {
-    margin-right: 20px; /* Add margin to separate photo from text */
-  }
+.photo-container {
+  margin-right: 20px; /* Keep margin for the photo */
+}
 
-  .info-container {
-    /* Align text vertically in the row */
-    display: flex;
-    align-items: center;
-  }
+.info-container {
+  flex-direction: column; /* Stack name and contact info vertically */
+  align-items: flex-start; /* Align text to the left */
+  margin-left: 20px; /* Add margin for the text */
+}
 
-  img {
-    /* Adjust image size as needed */
-    width: 150px;
-    border-radius: 5px; /* Add some rounding to the image */
-  }
+img {
+  /* Adjust image size and styles as needed */
+  width: 150px;
+  border-radius: 5px;
+}
 
-  h2 {
-    margin: 0; /* Remove default margin */
-  }
+h2 {
+  margin: 0; /* Remove default margin */
+}
 
-  a {
-    text-decoration: none; /* Remove underline from links */
-    color: blue; /* Change link color */
-  }
+a {
+  text-decoration: none; /* Remove underline from links */
+  color: blue; /* Change link color */
+}
 
-  a:hover {
-    color: purple; /* Change link color on hover */
-  }
+a:hover {
+  color: purple; /* Change link color on hover */
+}
 </style>
 
 	    
