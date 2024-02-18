@@ -2,15 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Krushnarth Chondikar's Resume</title>
-	<title>Total Visitor Count</title>
 	
     </head>
 
     <body>
         <h1>My Resume</h1>
-	<p>Total visitors: <span id="visitorCount">0</span></p>
 
 	<hr />
 
@@ -240,21 +237,35 @@ a:hover {
             </ol>
 
 	    
-<script>
-// Initialize the visitor count
-let visitorCount = 0;
+<?php
+// File path to store the visitor count
+$countFile = 'visitor_count.txt';
 
-// Function to update the visitor count and display it
-function updateVisitorCount() {
-  // Increment the count
-  visitorCount++;
-  // Update the count on the HTML page
-  document.getElementById('visitorCount').textContent = visitorCount;
+// Function to increment and return the visitor count
+function getVisitorCount() {
+    global $countFile;
+    
+    // Read the current count from the file
+    $count = intval(file_get_contents($countFile));
+
+    // Increment the count
+    $count++;
+
+    // Write the updated count back to the file
+    file_put_contents($countFile, $count);
+
+    // Return the updated count
+    return $count;
 }
+?>
 
-// Call the function to update the count
-updateVisitorCount();
-</script>
+<charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+<title>Total Visitor Count</title>
+	
+<p>Total visitors: <?php echo getVisitorCount(); ?></p>
+
 	    
 <style>
  #visitor-count {
