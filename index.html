@@ -263,33 +263,28 @@ echo getVisitorCount();
 ?>
 
 
-<!-- Display total visitor count with styled attributes -->
-<div id="visitor-count">Total visitors: <?php echo getVisitorCount(); ?></div>
-	    
 <!-- hitwebcounter Code START -->
-<a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/" target="_blank">
-    <img src="https://hitwebcounter.com/counter/counter.php?page=12648923&style=0006&nbdigits=9&type=ip&initCount=0" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>      
-	    
-<style>
- #visitor-count {
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding: 10px; /* Adjust padding as needed */
-  background-color: #f0f0f0; /* Optional background color */
-  font-size: 16px;
-  color: #333;
-	 
-  /* Additional styles for hitwebcounter (optional):
-      .hitwebcounter-wrapper {  /* Create a wrapper for hitwebcounter */
-        display: inline-block;
-        margin-left: 10px; /* Adjust spacing between counters */
-      }
-  */
-</style>
+<div id="visitor-count">
+    <a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/" target="_blank">
+        <img src="https://hitwebcounter.com/counter/counter.php?page=12648923&style=0006&nbdigits=9&type=ip&initCount=<?php echo getVisitorCount(); ?>" title="Counter Widget" alt="Visit counter For Websites" border="0" />
+    </a>      
+</div>
+<!-- hitwebcounter Code END -->
 
-	 
- }
+<style>
+#visitor-count {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px; /* Adjust padding as needed */
+    background-color: #f0f0f0; /* Optional background color */
+    font-size: 16px;
+    color: #333;
+}
+
+#visitor-count img {
+    /* Add styling for the hitwebcounter image if needed */
+}
 </style>
 	    
     </body>
