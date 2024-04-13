@@ -87,7 +87,49 @@ a:hover {
         <hr/>
 
             <p>
-                <b>Total Experience: 3 years, 2 months.</b><br/>
+		<b><div id="total-experience">
+		<!-- Total experience will be displayed here dynamically -->
+		</div></b>
+		
+		<script>
+		function calculateTotalExperience(experiences) {
+		let totalYears = 0;
+		let totalMonths = 0;
+		
+		experiences.forEach(experience => {
+		    let startDate = new Date(experience.start);
+		    let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
+		
+		    // If the experience is Infosys, use its end date as the current system date
+		    if (experience.end === undefined) {
+			endDate = new Date(); // Today's date
+		    }
+		
+		    let diff = Math.abs(endDate - startDate);
+		    let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+		    let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+		
+		    totalYears += years;
+		    totalMonths += months;
+		});
+		
+		totalYears += Math.floor(totalMonths / 12);
+		totalMonths %= 12;
+		
+		return `Total Experience: ${totalYears} years, ${totalMonths} months.`;
+		}
+		
+		// Define the array of experiences
+		let experiences = [
+		{ start: '2019-06-01', end: '2019-07-31' }, // Internship 1
+		{ start: '2019-12-01', end: '2020-01-31' }, // Internship 2
+		{ start: '2020-12-01', end: '2022-02-28' }, // Freelancing
+		{ start: '2022-07-01' } // Infosys (no end date provided)
+		];
+		
+		// Call the function and update the content of the div with id "total-experience"
+		document.getElementById("total-experience").innerText = calculateTotalExperience(experiences);
+		</script>
                     Young energetic & oriented Engineer. Who looking for a challenging position in the field of engineering.<br/>
                     Now I’m working at Infosys as System Engineer. Also I worked as a freelancer for about 1 year, 3 months.<br/>
                     Well-versed in HTML, Mainframe Technology, and Web Development. To continue my career in an organization where my skills and abilities will be explored to its best and help me figure out myself and realize my potential. A role that would mutually benefits to both, the organization and me.
@@ -139,7 +181,7 @@ a:hover {
 	                    <li>Creating JIRA stories.</li>
                         <li>Updating JIRA boards, comments, work flow.</li>
                         <li>Conducting scrum calls.</li>
-                        <li>Full filling the requirements of the project as a mainframe developer.</li>
+                        <li>Full filling the requirements of the project as a developer.</li>
 	                    <li>Working as a team.</li>
 	                    <li>Resolving the problems and errors quickly.</li>
                     </ul>
