@@ -267,7 +267,8 @@ echo getVisitorCount();
 <div id="visitor-count">
     <a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/" target="_blank">
         <img src="https://hitwebcounter.com/counter/counter.php?page=12648923&style=0006&nbdigits=9&type=ip&initCount=<?php echo getVisitorCount(); ?>" title="Counter Widget" alt="Visit counter For Websites" border="0" />
-    </a>      
+    </a>
+    <p>Total visitors: <?php echo getVisitorCount(); ?></p>
 </div>
 <!-- hitwebcounter Code END -->
 
@@ -282,8 +283,8 @@ echo getVisitorCount();
     color: #333;
 }
 
-#visitor-count img {
-    /* Add styling for the hitwebcounter image if needed */
+#visitor-count p {
+    margin-top: 5px; /* Adjust margin as needed */
 }
 </style>
 	    
