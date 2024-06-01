@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,290 +8,322 @@
     <meta name="description" content="Krushnarth Chondikar's Resume">
     <meta name="keywords" content="Resume, resume, Krushnarth Chondikar's Resume, basic starting html resume,">
     <meta name="robots" content="INDEX, FOLLOW">
-	
-        <title>Krushnarth Chondikar's Resume</title>
-	
-    </head>
 
-    <body>
-        <h1>My Resume</h1>
+    <title>Krushnarth Chondikar's Resume</title>
 
-	<hr />
+</head>
 
-<div class="container">
-  <div class="photo-container">
-    <a href="#"><img src="./Photo.png" height="200" alt="Krushnarth's photo" /></a>
-  </div>
+<body>
+    <h1>My Resume</h1>
 
-  <div class="info-container">
-    <h2>Name: Krushnarth S. Chondikar</h2>
+    <hr />
+
+    <div class="container">
+        <div class="photo-container">
+            <a href="#"><img src="./Photo.png" height="200" alt="Krushnarth's photo" /></a>
+        </div>
+
+        <div class="info-container">
+            <h2>Name: Krushnarth S. Chondikar</h2>
+            <p>
+                Mail id:
+                <a href="mailto: chondikar.krushnarth@gmail.com">chondikar.krushnarth@gmail.com</a>
+                <br />
+                Mobile number:
+                <a href="callto: +91 9049880482">+91 9049880482</a>
+                <br />
+                <a href="https://www.linkedin.com/in/chondikar-krushnarth-kc">LinkedIn id</a>
+            </p>
+        </div>
+    </div>
+
+    <hr />
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            /* Align elements at opposite ends */
+            align-items: center;
+            /* Vertically align photo and text */
+            margin: 10px;
+        }
+
+        .photo-container {
+            margin-right: 20px;
+            /* Keep margin for the photo */
+        }
+
+        .info-container {
+            flex-direction: column;
+            /* Stack name and contact info vertically */
+            align-items: flex-start;
+            /* Align text to the left */
+            margin-left: 20px;
+            /* Add margin for the text */
+        }
+
+        img {
+            /* Adjust image size and styles as needed */
+            width: 150px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            margin: 0;
+            /* Remove default margin */
+        }
+
+        a {
+            text-decoration: none;
+            /* Remove underline from links */
+            color: blue;
+            /* Change link color */
+        }
+
+        a:hover {
+            color: purple;
+            /* Change link color on hover */
+        }
+    </style>
+
+    <ul>
+        <li>Summary</li>
+        <li>Education</li>
+        <li>Experience(s)</li>
+        <li>Skills</li>
+        <li>Projects</li>
+    </ul>
+
+    <br />
+
+    <hr />
+
+    <h3>Summary:</h3>
+
+    <hr />
+
     <p>
-      Mail id:
-      <a href="mailto: chondikar.krushnarth@gmail.com">chondikar.krushnarth@gmail.com</a>
-      <br />
-      Mobile number:
-      <a href="callto: +91 9049880482">+91 9049880482</a>
-      <br />
-      <a href="https://www.linkedin.com/in/chondikar-krushnarth-kc">LinkedIn id</a>
+
+    <div id="total-experience" <!-- Total experience will be displayed here dynamically -->
+    </div>
+
+    <script>
+        function calculateTotalExperience(experiences) {
+            let totalYears = 0;
+            let totalMonths = 0;
+
+            experiences.forEach(experience => {
+                let startDate = new Date(experience.start);
+                let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
+
+                // If the experience is Infosys, use its end date as the current system date
+                if (experience.end === undefined) {
+                    endDate = new Date(); // Today's date
+                }
+
+                let diff = Math.abs(endDate - startDate);
+                let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+
+                totalYears += years;
+                totalMonths += months;
+            });
+
+            totalYears += Math.floor(totalMonths / 12);
+            totalMonths %= 12;
+
+            return `Total Experience: ${totalYears} years, ${totalMonths} months.`;
+        }
+
+        // Define the array of experiences
+        let experiences = [
+            { start: '2019-06-15', end: '2019-07-06' }, // Internship 1
+            { start: '2019-12-31', end: '2020-01-13' }, // Internship 2
+            { start: '2020-12-16', end: '2022-03-23' }, // Freelancing
+            { start: '2022-03-24' } // Infosys (no end date provided)
+        ];
+
+        // Call the function and update the content of the div with id "total-experience"
+        document.getElementById("total-experience").innerText = calculateTotalExperience(experiences);
+    </script>
+
+    Young energetic & oriented Engineer. Who looking for a challenging position in the field of engineering.<br />
+    Now I’m working at Infosys as System Engineer. Also I worked as a freelancer for about 1 year, 3 months.<br />
+    Well-versed in HTML, Mainframe Technology, and Web Development. To continue my career in an organization where my
+    skills and abilities will be explored to its best and help me figure out myself and realize my potential. A role
+    that would mutually benefits to both, the organization and me.
+
     </p>
-  </div>
-</div>
 
-<hr />
+    <br />
 
-<style>
-.container {
-  display: flex;
-  justify-content: space-between; /* Align elements at opposite ends */
-  align-items: center; /* Vertically align photo and text */
-  margin: 10px;
-}
+    <hr />
 
-.photo-container {
-  margin-right: 20px; /* Keep margin for the photo */
-}
+    <h3>Education:</h3>
 
-.info-container {
-  flex-direction: column; /* Stack name and contact info vertically */
-  align-items: flex-start; /* Align text to the left */
-  margin-left: 20px; /* Add margin for the text */
-}
+    <hr />
 
-img {
-  /* Adjust image size and styles as needed */
-  width: 150px;
-  border-radius: 5px;
-}
+    <ul>
+        <li><b>Post-Graduation M.E. – 2022 (2020-2022)</b><br />
+            (CGPA- 7.88 [71.20%], Class- First with Distinction).<br />
+            Savitribai Phule Pune University from K.J. College of Engineering and Management Research, Pune,
+            Maharashtra, India.</li>
+        <br />
+        <li><b>Graduation B.E. – 2020 (2016-2020)</b><br />
+            (CGPA- 6.6 [66%], Class- A).<br />
+            Dr. Babasaheb Ambedkar Marathwada University from M.G.M.’s Jawaharlal Nehru Engineering College, Aurangabad,
+            Maharashtra, India.</li>
+        <br />
+        <li><b>H.S.C.(Science) – 2016 (2014-2016)</b><br />
+            (70.62%, Class- First).<br />
+            State Board of Maharashtra, from Vidyadham Science Jr. College, Aurangabad, Maharashtra, India.</li>
+        <br />
+        <li><b>S.S.C. – 2014 (2004-2014)</b><br />
+            (84.20%, Class- First with Distinction).<br />
+            State Board of Maharashtra, from MAEER’s Swami Vivekanand Academy, Aurangabad, Maharashtra, India.</li>
 
-h2 {
-  margin: 0; /* Remove default margin */
-}
+    </ul>
 
-a {
-  text-decoration: none; /* Remove underline from links */
-  color: blue; /* Change link color */
-}
+    <br />
 
-a:hover {
-  color: purple; /* Change link color on hover */
-}
-</style>
+    <hr>
 
-            <ul>
-                <li>Summary</li> 
-                <li>Education</li>
-                <li>Experience(s)</li>
-                <li>Skills</li>
-                <li>Projects</li>
+    <h3>Experience(s):</h3>
+
+    <hr />
+    <ol type="1">
+        <li><b>Infosys: - March 2022 to Present.</b><br />
+            <ul style="list-style-type:disc;">
+                <li>Senior System Engineer: April 2024 to Present<br /></li>
+                <ul type="">
+                    <li>Led the design and automation of a monthly banking statement generation system for a US-based
+                        client.</li>
+                    <li>Played a dual role as developer and consultant, ensuring both technical expertise and clear
+                        communication.</li>
+                    <li>Utilized Jira to create user stories, manage project workflow, and facilitate communication
+                        through comments, calls and updates.</li>
+                    <li>Demonstrated strong problem-solving skills by effectively resolving technical issues and
+                        ensuring project requirements were met.</li>
+                    <li>Fostered a collaborative work environment to achieve project goals.</li>
+                </ul>
+            </ul>
+            <br />
+            <ul style="list-style-type:disc;">
+                <li>System Engineer: July 2022 to March 2024<br /></li>
+                <ul type="">
+                    <li>Led the design and automation of a monthly banking statement generation system for a US-based
+                        client.</li>
+                    <li>Played a dual role as developer and consultant, ensuring both technical expertise and clear
+                        communication.</li>
+                    <li>Utilized Jira to create user stories, manage project workflow, and facilitate communication
+                        through comments, calls and updates.</li>
+                    <li>Demonstrated strong problem-solving skills by effectively resolving technical issues and
+                        ensuring project requirements were met.</li>
+                    <li>Fostered a collaborative work environment to achieve project goals.</li>
+                </ul>
             </ul>
 
-        <br/>
+            <br />
 
-        <hr/>
+            <ul style="list-style-type:disc;">
+                <li>System Engineer Trainee: March 2022 to June 2022<br /></li>
+                <ul>
+                    <li>Java.<br /></li>
+                    <li>SQL.<br /></li>
+                    <li>JIRA.</li>
+                    <li>Agile.</li>
+                    <li>Analytics.</li>
+                    <li>Mainframe.<br /></li>
+                </ul>
+            </ul>
 
-            <h3>Summary:</h3>
+            <br />
 
-        <hr/>
-
-            <p>
-		
-		<div id="total-experience"
-		<!-- Total experience will be displayed here dynamically -->
-		</div>
-		
-		<script>
-		function calculateTotalExperience(experiences) {
-		let totalYears = 0;
-		let totalMonths = 0;
-		
-		experiences.forEach(experience => {
-		    let startDate = new Date(experience.start);
-		    let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
-		
-		    // If the experience is Infosys, use its end date as the current system date
-		    if (experience.end === undefined) {
-			endDate = new Date(); // Today's date
-		    }
-		
-		    let diff = Math.abs(endDate - startDate);
-		    let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-		    let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-		
-		    totalYears += years;
-		    totalMonths += months;
-		});
-		
-		totalYears += Math.floor(totalMonths / 12);
-		totalMonths %= 12;
-		
-		return `Total Experience: ${totalYears} years, ${totalMonths} months.`;
-		}
-		
-		// Define the array of experiences
-		let experiences = [
-		{ start: '2019-06-15', end: '2019-07-06' }, // Internship 1
-		{ start: '2019-12-31', end: '2020-01-13' }, // Internship 2
-		{ start: '2020-12-16', end: '2022-03-23' }, // Freelancing
-		{ start: '2022-03-24' } // Infosys (no end date provided)
-		];
-		
-		// Call the function and update the content of the div with id "total-experience"
-		document.getElementById("total-experience").innerText = calculateTotalExperience(experiences);
-		</script>
-			
-                Young energetic & oriented Engineer. Who looking for a challenging position in the field of engineering.<br/>
-        	Now I’m working at Infosys as System Engineer. Also I worked as a freelancer for about 1 year, 3 months.<br/>
-                Well-versed in HTML, Mainframe Technology, and Web Development. To continue my career in an organization where my skills and abilities will be explored to its best and help me figure out myself and realize my potential. A role that would mutually benefits to both, the organization and me.
-		
-            </p>
-
-        <br/>
-
-        <hr/>
-
-            <h3>Education:</h3>
-
-        <hr/>
-
-        <ul>
-            <li><b>Post-Graduation M.E. – 2022 (2020-2022)</b><br/>
-                (CGPA- 7.88 [71.20%], Class- First with Distinction).<br/>
- 	             Savitribai Phule Pune University from K.J. College of Engineering and Management Research, Pune, Maharashtra, India.</li>
-            <br/>
-            <li><b>Graduation B.E. – 2020 (2016-2020)</b><br/>
-                (CGPA- 6.6 [66%], Class- A).<br/>
- 	             Dr. Babasaheb Ambedkar Marathwada University from M.G.M.’s Jawaharlal Nehru Engineering College, Aurangabad, Maharashtra, India.</li>
-            <br/>   
-            <li><b>H.S.C.(Science) – 2016 (2014-2016)</b><br/>
-                (70.62%, Class- First).<br/>
- 	            State Board of Maharashtra, from Vidyadham Science Jr. College, Aurangabad, Maharashtra, India.</li>
-            <br/>        
-             <li><b>S.S.C. – 2014 (2004-2014)</b><br/>
-                (84.20%, Class- First with Distinction).<br/>
- 	            State Board of Maharashtra, from MAEER’s Swami Vivekanand Academy, Aurangabad, Maharashtra, India.</li>
-
+        <li><b>Freelancing: - December 2020 to February 2022.</b><br /></li>
+        Maharashtra, India.<br />
+        Project: - 3D Drawings, Industrial Shed, Estimation and Costing, Mix grade, Residential Flats.<br />
+        <ul style="list-style-type:disc;">
+            <li>Planning for residential flats scheme.</li>
+            <li>3D Drawing as per requirement.</li>
+            <li>Estimation and costing with planning for Industrial shed.</li>
+            <li>Mix design prepared.</li>
         </ul>
 
-        <br/>
+        <br />
 
-        <hr>
+        <li><b>Internship: - December 2019 to January 2020.</b></li>
+        TECHNOCRAT Architect’s & Engineer’s, Hingoli, Maharashtra, India.<br />
+        Project: - Ashoka Park (Residential Building).
+        <ul style="list-style-type:disc;">
+            <li>Schedule the Next Day Work Chart.</li>
+            <li>Manage the Project.</li>
+            <li>Study the various aspects like beam, column, slab and footing design.</li>
+            <li>Daily Progress Report.</li>
+            <li>Markings of Centerline for RCC structure. Checking & Making Checklists of the RCC Members, Shuttering,
+                Bay Shuttering with Respect to Drawings. Line Out of Brickwork as Per Architectural Working Drawings.
+            </li>
+        </ul>
 
-        <h3>Experience(s):</h3>
+        <br />
+        <li><b>Internship: - June 2019 to July 2019.</b></li>
+        MERIT CONSULTANCY, Kothrud, Pune, Maharashtra, India.<br />
+        Project: - Atrium Skyward, Undri, Pune.(15500 SQM Area) (P+11F+T X 3 WINGS)<br />
+        <ul style="list-style-type:disc;">
+            <li>Calculation of RL using Dumpy Level & Check the Previous Readings.</li>
+            <li>Schedule the Daily Work Chart.</li>
+            <li>Study the Architectural Drawings & Structural Drawings & Checking of The RCC Structure with Respect to
+                Drawings.</li>
+            <li>Document Handling, Drafting Working Drawings, Sanctioned Planes, MEP Drawings, For the Project Managers
+                and Engineers on Site.</li>
+        </ul>
 
-        <hr/>
-        <ol type="1">
-            <li><b>Infosys: - March 2022 to Present.</b><br/>
-                <ul style="list-style-type:disc;">
-                    <li>Senior System Engineer: April 2024 to Present<br/></li>
-                </ul>
-        <br/>
-                <ul style="list-style-type:disc;">
-                    <li>System Engineer: July 2022 to March 2024<br/></li>
-                    <ul type="">
-                        <li>Led the design and automation of a monthly banking statement generation system for a US-based client.</li>
-                        <li>Played a dual role as developer and consultant, ensuring both technical expertise and clear communication.</li>
-                        <li>Utilized Jira to create user stories, manage project workflow, and facilitate communication through comments, calls and updates.</li>
-                        <li>Demonstrated strong problem-solving skills by effectively resolving technical issues and ensuring project requirements were met.</li>
-                        <li>Fostered a collaborative work environment to achieve project goals.</li>
-                    </ul>
-                </ul>
+    </ol>
 
-        <br/>
+    <br />
 
-                <ul style="list-style-type:disc;">
-	                <li>System Engineer Trainee: March 2022 to June 2022<br/></li>
-	                    <ul>
-                        <li>Java.<br/></li>
-                        <li>SQL.<br/></li>
-                        <li>JIRA.</li>
-                        <li>Agile.</li>
-                        <li>Analytics.</li>
-                        <li>Mainframe.<br/></li>
-                    </ul>
-                </ul>
+    <hr>
 
-        <br/>
+    <h3>Skills:</h3>
 
-            <li><b>Freelancing: - December 2020 to February 2022.</b><br/></li>
-                    Maharashtra, India.<br/>
-                    Project: - 3D Drawings, Industrial Shed, Estimation and Costing, Mix grade, Residential Flats.<br/>
-                    <ul style="list-style-type:disc;">
-                        <li>Planning for residential flats scheme.</li>
-                        <li>3D Drawing as per requirement.</li>
-                        <li>Estimation and costing with planning for Industrial shed.</li>
-                        <li>Mix design prepared.</li>
-                    </ul>
+    <hr>
 
-        <br/>
+    <ul>
+        <li>MS Office</li>
+        <li>HTML</li>
+        <li>Web Development</li>
+        <li>Mainframe</li>
+        <li>SQL</li>
+        <li>Java</li>
+        <li>C</li>
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>Project Management</li>
+        <li>Quantity Survey</li>
+        <li>Leadership</li>
+        <li>Communication</li>
+        <li>Rate Analysis</li>
+        <li>Discipline</li>
+        <li>Hard with Smart Worker</li>
+        <li>Problem Solver</li>
+        <li>Creative</li>
+    </ul>
 
-            <li><b>Internship: - December 2019 to January 2020.</b></li>
-                    TECHNOCRAT Architect’s & Engineer’s, Hingoli, Maharashtra, India.<br/>
-                    Project: - Ashoka Park (Residential Building).
-                    <ul style="list-style-type:disc;">
-                        <li>Schedule the Next Day Work Chart.</li>
-                        <li>Manage the Project.</li>
-                        <li>Study the various aspects like beam, column, slab and footing design.</li>
-                        <li>Daily Progress Report.</li>
-                        <li>Markings of Centerline for RCC structure. Checking & Making Checklists of the RCC Members, Shuttering, Bay Shuttering with Respect to Drawings. Line Out of Brickwork as Per Architectural Working Drawings.</li>
-                    </ul>
-                    
-        <br/>
-            <li><b>Internship: - June 2019 to July 2019.</b></li>
-                    MERIT CONSULTANCY, Kothrud, Pune, Maharashtra, India.<br/>
-                    Project: - Atrium Skyward, Undri, Pune.(15500 SQM Area) (P+11F+T X 3 WINGS)<br/>
-	                <ul style="list-style-type:disc;">
-                        <li>Calculation of RL using Dumpy Level & Check the Previous Readings.</li>
-                        <li>Schedule the Daily Work Chart.</li>
-                        <li>Study the Architectural Drawings & Structural Drawings & Checking of The RCC Structure with Respect to Drawings.</li>
-                        <li>Document Handling, Drafting Working Drawings, Sanctioned Planes, MEP Drawings, For the Project Managers and Engineers on Site.</li>
-                    </ul>
+    <br />
 
-        </ol>
+    <hr>
 
-        <br/>
+    <h3>Projects:</h3>
 
-        <hr>
+    <hr>
 
-        <h3>Skills:</h3>
+    <ol>
+        <li><a href="https://krushnarthchondikar.github.io/html-portfolio/"> My HTML Portfolio (Beginner) </a></li>
+        <li><a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/"> My Resume </a></li>
+    </ol>
 
-        <hr>
 
-            <ul>
-                <li>MS Office</li>
-                <li>HTML</li>
-                <li>Web Development</li>
-	            <li>Mainframe</li>
-	            <li>SQL</li>
-	            <li>Java</li>
-	            <li>C</li>
-	            <li>Python</li>
-	            <li>JavaScript</li>
-	            <li>Project Management</li>
-	            <li>Quantity Survey</li>
-	            <li>Leadership</li>
-	            <li>Communication</li>
-	            <li>Rate Analysis</li>
-	            <li>Discipline</li>
-	            <li>Hard with Smart Worker</li>
-	            <li>Problem Solver</li>
-	            <li>Creative</li>
-            </ul>
-
-        <br/>
-
-        <hr>
-
-        <h3>Projects:</h3>
-
-        <hr>
-
-            <ol>
-                <li><a href="https://krushnarthchondikar.github.io/html-portfolio/"> My HTML Portfolio (Beginner) </a></li>
-                <li><a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/"> My Resume </a></li>
-            </ol>
-
-	    
-<?php
+    <?php
 // File path to store the visitor count
 $countFile = 'visitor_count.txt';
 
@@ -315,40 +348,46 @@ function getVisitorCount() {
 echo getVisitorCount();
 ?>
 
-<<<<<<< HEAD
+    <<<<<<< HEAD <!-- Display total visitor count with styled attributes -->
+        <div id="visitor-count">Total visitors:
+            <?php echo getVisitorCount(); ?>
+        </div>
 
-<!-- Display total visitor count with styled attributes -->
-<div id="visitor-count">Total visitors: <?php echo getVisitorCount(); ?></div>
-	    
-=======
+        =======
 
-<!-- hitwebcounter Code START -->
-<div id="visitor-count">
-    </a>
-    <p>Total visitors: <?php echo getVisitorCount(); ?></p>
-    <a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/" target="_blank">
-        <img src="https://hitwebcounter.com/counter/counter.php?page=12648923&style=0006&nbdigits=9&type=ip&initCount=<?php echo getVisitorCount(); ?>" title="Counter Widget" alt="Visit counter For Websites" border="0" />
+        <!-- hitwebcounter Code START -->
+        <div id="visitor-count">
+            </a>
+            <p>Total visitors:
+                <?php echo getVisitorCount(); ?>
+            </p>
+            <a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/" target="_blank">
+                <img src="https://hitwebcounter.com/counter/counter.php?page=12648923&style=0006&nbdigits=9&type=ip&initCount=<?php echo getVisitorCount(); ?>"
+                    title="Counter Widget" alt="Visit counter For Websites" border="0" />
 
-</div>
-<!-- hitwebcounter Code END -->
+        </div>
+        <!-- hitwebcounter Code END -->
 
->>>>>>> 3134bd2030144b7920510de34b16fe97a3ed836f
-<style>
-#visitor-count {
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 10px; /* Adjust padding as needed */
-    background-color: #f0f0f0; /* Optional background color */
-    font-size: 16px;
-    color: #333;
-}
+        >>>>>>> 3134bd2030144b7920510de34b16fe97a3ed836f
+        <style>
+            #visitor-count {
+                position: fixed;
+                top: 0;
+                right: 0;
+                padding: 10px;
+                /* Adjust padding as needed */
+                background-color: #f0f0f0;
+                /* Optional background color */
+                font-size: 16px;
+                color: #333;
+            }
 
-#visitor-count p {
-    margin-top: 5px; /* Adjust margin as needed */
-}
-</style>
-	    
-    </body>
+            #visitor-count p {
+                margin-top: 5px;
+                /* Adjust margin as needed */
+            }
+        </style>
+
+</body>
+
 </html>
-
