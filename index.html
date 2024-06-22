@@ -194,6 +194,47 @@
     <hr />
     <ol type="1">
         <li><b>Infosys: - March 2022 to Present.</b><br />
+                <div id="infosys-experience" <!-- Infosys experience will be displayed here dynamically -->
+                </div>
+            
+                <script>
+                    function calculateTotalExperience1(experiences) {
+                        let totalYears = 0;
+                        let totalMonths = 0;
+            
+                        experiences.forEach(experience => {
+                            let startDate = new Date(experience.start);
+                            let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
+            
+                            // If the experience is Infosys, use its end date as the current system date
+                            if (experience.end === undefined) {
+                                endDate = new Date(); // Today's date
+                            }
+            
+                            let diff = Math.abs(endDate - startDate);
+                            let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                            let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            
+                            totalYears += years;
+                            totalMonths += months;
+                        });
+            
+                        totalYears += Math.floor(totalMonths / 12);
+                        totalMonths %= 12;
+            
+                        return `Infosys Experience: ${totalYears} years, ${totalMonths} months.`;
+                    }
+            
+                    // Define the array of experiences
+                    let experiences = [
+                        { start: '2022-03-24' } // Infosys (no end date provided)
+                    ];
+            
+                    // Call the function and update the content of the div with id "total-experience"
+                    document.getElementById("infosys-experience").innerText = calculateTotalExperience1(experiences);
+                </script>
+            <br />
+
             <ul style="list-style-type:disc;">
                 <li>Senior System Engineer: April 2024 to Present<br /></li>
                 <ul type="">
@@ -242,6 +283,47 @@
 
         <li><b>Freelancing: - December 2020 to February 2022.</b><br /></li>
         Maharashtra, India.<br />
+         <div id="freelancer-experience" <!-- Freelancing experience will be displayed here dynamically -->
+    </div>
+
+            <script>
+                function calculateTotalExperience2(experiences) {
+                    let totalYears = 0;
+                    let totalMonths = 0;
+        
+                    experiences.forEach(experience => {
+                        let startDate = new Date(experience.start);
+                        let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
+        
+                        // If the experience is Infosys, use its end date as the current system date
+                        if (experience.end === undefined) {
+                            endDate = new Date(); // Today's date
+                        }
+        
+                        let diff = Math.abs(endDate - startDate);
+                        let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                        let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+        
+                        totalYears += years;
+                        totalMonths += months;
+                    });
+        
+                    totalYears += Math.floor(totalMonths / 12);
+                    totalMonths %= 12;
+        
+                    return `Freelancing Experience: ${totalYears} years, ${totalMonths} months.`;
+                }
+        
+                // Define the array of experiences
+                let experiences = [
+                    { start: '2020-12-16', end: '2022-03-23' }, // Freelancing
+                ];
+        
+                // Call the function and update the content of the div with id "total-experience"
+                document.getElementById("freelancing-experience").innerText = calculateTotalExperience2(experiences);
+            </script> 
+        <br />
+
         Project: - 3D Drawings, Industrial Shed, Estimation and Costing, Mix grade, Residential Flats.<br />
         <ul style="list-style-type:disc;">
             <li>Planning for residential flats scheme.</li>
@@ -254,7 +336,47 @@
 
         <li><b>Internship: - December 2019 to January 2020.</b></li>
         TECHNOCRAT Architect’s & Engineer’s, Hingoli, Maharashtra, India.<br />
-        Project: - Ashoka Park (Residential Building).
+        Project: - Ashoka Park (Residential Building).<br />
+                <div id="internship1-experience" <!-- Internship experience will be displayed here dynamically -->
+    </div>
+
+            <script>
+                function calculateTotalExperience3(experiences) {
+                    let totalYears = 0;
+                    let totalMonths = 0;
+        
+                    experiences.forEach(experience => {
+                        let startDate = new Date(experience.start);
+                        let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
+        
+                        // If the experience is Infosys, use its end date as the current system date
+                        if (experience.end === undefined) {
+                            endDate = new Date(); // Today's date
+                        }
+        
+                        let diff = Math.abs(endDate - startDate);
+                        let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                        let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+        
+                        totalYears += years;
+                        totalMonths += months;
+                    });
+        
+                    totalYears += Math.floor(totalMonths / 12);
+                    totalMonths %= 12;
+        
+                    return `Internship Experience: ${totalYears} years, ${totalMonths} months.`;
+                }
+        
+                // Define the array of experiences
+                let experiences = [
+                    { start: '2019-06-15', end: '2019-07-06' }, // Internship 1
+                ];
+        
+                // Call the function and update the content of the div with id "total-experience"
+                document.getElementById("internship1-experience").innerText = calculateTotalExperience3(experiences);
+            </script> 
+        <br />
         <ul style="list-style-type:disc;">
             <li>Schedule the Next Day Work Chart.</li>
             <li>Manage the Project.</li>
@@ -269,6 +391,46 @@
         <li><b>Internship: - June 2019 to July 2019.</b></li>
         MERIT CONSULTANCY, Kothrud, Pune, Maharashtra, India.<br />
         Project: - Atrium Skyward, Undri, Pune.(15500 SQM Area) (P+11F+T X 3 WINGS)<br />
+                                <div id="internship2-experience" <!-- Internship experience will be displayed here dynamically -->
+    </div>
+
+            <script>
+                function calculateTotalExperience4(experiences) {
+                    let totalYears = 0;
+                    let totalMonths = 0;
+        
+                    experiences.forEach(experience => {
+                        let startDate = new Date(experience.start);
+                        let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
+        
+                        // If the experience is Infosys, use its end date as the current system date
+                        if (experience.end === undefined) {
+                            endDate = new Date(); // Today's date
+                        }
+        
+                        let diff = Math.abs(endDate - startDate);
+                        let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                        let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+        
+                        totalYears += years;
+                        totalMonths += months;
+                    });
+        
+                    totalYears += Math.floor(totalMonths / 12);
+                    totalMonths %= 12;
+        
+                    return `Internship Experience: ${totalYears} years, ${totalMonths} months.`;
+                }
+        
+                // Define the array of experiences
+                let experiences = [
+                    { start: '2019-12-31', end: '2020-01-13' }, // Internship 2
+                ];
+        
+                // Call the function and update the content of the div with id "total-experience"
+                document.getElementById("internship2-experience").innerText = calculateTotalExperience4(experiences);
+            </script> 
+        <br />
         <ul style="list-style-type:disc;">
             <li>Calculation of RL using Dumpy Level & Check the Previous Readings.</li>
             <li>Schedule the Daily Work Chart.</li>
