@@ -194,45 +194,45 @@
     <hr />
     <ol type="1">
         <li><b>Infosys: - March 2022 to Present.</b><br />
-                <div id="infosys-experience" <!-- Infosys experience will be displayed here dynamically -->
-                </div>
-            
-                <script>
-                    function calculateTotalExperience1(experiences) {
-                        let totalYears = 0;
-                        let totalMonths = 0;
-            
-                        experiences.forEach(experience => {
-                            let startDate = new Date(experience.start);
-                            let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
-            
-                            // If the experience is Infosys, use its end date as the current system date
-                            if (experience.end === undefined) {
-                                endDate = new Date(); // Today's date
-                            }
-            
-                            let diff = Math.abs(endDate - startDate);
-                            let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-                            let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-            
-                            totalYears += years;
-                            totalMonths += months;
-                        });
-            
-                        totalYears += Math.floor(totalMonths / 12);
-                        totalMonths %= 12;
-            
-                        return `Infosys Experience: ${totalYears} years, ${totalMonths} months.`;
-                    }
-            
-                    // Define the array of experiences
-                    let experiences = [
-                        { start: '2022-03-24' } // Infosys (no end date provided)
-                    ];
-            
-                    // Call the function and update the content of the div with id "total-experience"
-                    document.getElementById("infosys-experience").innerText = calculateTotalExperience1(experiences);
-                </script>
+            <div id="infosys-experience" <!-- Infosys experience will be displayed here dynamically -->
+            </div>
+
+            <script>
+                function calculateTotalExperience1(experiences1) {
+                    let totalYears1 = 0;
+                    let totalMonths1 = 0;
+
+                    experiences1.forEach(experience1 => {
+                        let startDate1 = new Date(experience1.start);
+                        let endDate1 = experience1.end ? new Date(experience1.end) : new Date(); // Use current system date if end date is not provided
+
+                        // If the experience is Infosys, use its end date as the current system date
+                        if (experience1.end === undefined) {
+                            endDate1 = new Date(); // Today's date
+                        }
+
+                        let diff1 = Math.abs(endDate1 - startDate1);
+                        let years1 = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                        let months1 = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+
+                        totalYears1 += years;
+                        totalMonths1 += months;
+                    });
+
+                    totalYears1 += Math.floor(totalMonths1 / 12);
+                    totalMonths1 %= 12;
+
+                    return `Infosys Experience: ${totalYears1} years, ${totalMonths1} months.`;
+                }
+
+                // Define the array of experiences
+                let experiences1 = [
+                    { start: '2022-03-24' } // Infosys (no end date provided)
+                ];
+
+                // Call the function and update the content of the div with id "total-experience"
+                document.getElementById("infosys-experience").innerText = calculateTotalExperience(experiences1);
+            </script>
             <br />
 
             <ul style="list-style-type:disc;">
@@ -282,45 +282,45 @@
             <br />
 
         <li><b>Freelancing: - December 2020 to February 2022.</b><br /></li>
-            <div id="freelancer-experience" <!-- Freelancing experience will be displayed here dynamically -->
-            </div>
+        <div id="freelancing-experience" <!-- Freelancing experience will be displayed here dynamically -->
+        </div>
 
-            <script>
-                function calculateTotalExperience2(experiences) {
-                    let totalYears = 0;
-                    let totalMonths = 0;
-        
-                    experiences.forEach(experience => {
-                        let startDate = new Date(experience.start);
-                        let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
-        
-                        // If the experience is Infosys, use its end date as the current system date
-                        if (experience.end === undefined) {
-                            endDate = new Date(); // Today's date
-                        }
-        
-                        let diff = Math.abs(endDate - startDate);
-                        let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-                        let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-        
-                        totalYears += years;
-                        totalMonths += months;
-                    });
-        
-                    totalYears += Math.floor(totalMonths / 12);
-                    totalMonths %= 12;
-        
-                    return `Freelancing Experience: ${totalYears} years, ${totalMonths} months.`;
-                }
-        
-                // Define the array of experiences
-                let experiences = [
-                    { start: '2020-12-16', end: '2022-03-23' }, // Freelancing
-                ];
-        
-                // Call the function and update the content of the div with id "total-experience"
-                document.getElementById("freelancing-experience").innerText = calculateTotalExperience2(experiences);
-            </script> 
+        <script>
+            function calculateTotalExperience2(experiences2) {
+                let totalYears2 = 0;
+                let totalMonths2 = 0;
+
+                experiences2.forEach(experience2 => {
+                    let startDate2 = new Date(experience2.start);
+                    let endDate2 = experience2.end ? new Date(experience2.end) : new Date(); // Use current system date if end date is not provided
+
+                    // If the experience is Infosys, use its end date as the current system date
+                    if (experience2.end === undefined) {
+                        endDate2 = new Date(); // Today's date
+                    }
+
+                    let diff2 = Math.abs(endDate2 - startDate2);
+                    let years2 = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                    let months2 = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+
+                    totalYears2 += years;
+                    totalMonths2 += months;
+                });
+
+                totalYears2 += Math.floor(totalMonths2 / 12);
+                totalMonths2 %= 12;
+
+                return `Freelancing Experience: ${totalYears2} years, ${totalMonths2} months.`;
+            }
+
+            // Define the array of experiences
+            let experiences2 = [
+                { start: '2020-12-16', end: '2022-03-23' }, // Freelancing
+            ];
+
+            // Call the function and update the content of the div with id "total-experience"
+            document.getElementById("freelancing-experience").innerText = calculateTotalExperience(experiences2);
+        </script>
         <br />
         Maharashtra, India.<br />
         Project: - 3D Drawings, Industrial Shed, Estimation and Costing, Mix grade, Residential Flats.<br />
@@ -334,45 +334,46 @@
         <br />
 
         <li><b>Internship: - December 2019 to January 2020.</b></li>
-            <div id="internship1-experience" <!-- Internship experience will be displayed here dynamically -->
-            </div>
+        <div id="internship1-experience" <!-- Internship1 experience will be displayed here dynamically -->
+        </div>
 
-            <script>
-                function calculateTotalExperience3(experiences) {
-                    let totalYears = 0;
-                    let totalMonths = 0;
-        
-                    experiences.forEach(experience => {
-                        let startDate = new Date(experience.start);
-                        let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
-        
-                        // If the experience is Infosys, use its end date as the current system date
-                        if (experience.end === undefined) {
-                            endDate = new Date(); // Today's date
-                        }
-        
-                        let diff = Math.abs(endDate - startDate);
-                        let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-                        let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-        
-                        totalYears += years;
-                        totalMonths += months;
-                    });
-        
-                    totalYears += Math.floor(totalMonths / 12);
-                    totalMonths %= 12;
-        
-                    return `Internship Experience: ${totalYears} years, ${totalMonths} months.`;
-                }
-        
-                // Define the array of experiences
-                let experiences = [
-                    { start: '2019-12-31', end: '2020-01-13' }, // Internship 1
-                ];
-        
-                // Call the function and update the content of the div with id "total-experience"
-                document.getElementById("internship1-experience").innerText = calculateTotalExperience3(experiences);
-            </script> 
+        <script>
+            function calculateTotalExperience3(experiences3) {
+                let totalYears3 = 0;
+                let totalMonths3 = 0;
+
+                experiences3.forEach(experience3 => {
+                    let startDate3 = new Date(experience3.start);
+                    let endDate3 = experience3.end ? new Date(experience3.end) : new Date(); // Use current system date if end date is not provided
+
+                    // If the experience is Infosys, use its end date as the current system date
+                    if (experience3.end === undefined) {
+                        endDate3 = new Date(); // Today's date
+                    }
+
+                    let diff3 = Math.abs(endDate3 - startDate3);
+                    let years3 = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                    let months3 = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+
+                    totalYears3 += years;
+                    totalMonths3 += months;
+                });
+
+                totalYears3 += Math.floor(totalMonths3 / 12);
+                totalMonths3 %= 12;
+
+                return `Internship1 Experience: ${totalYears3} years, ${totalMonths3} months.`;
+            }
+
+            // Define the array of experiences
+            let experiences3 = [
+                { start: '2019-12-31', end: '2020-01-13' }, // Internship 2
+
+            ];
+
+            // Call the function and update the content of the div with id "total-experience"
+            document.getElementById("internship1-experience").innerText = calculateTotalExperience(experiences3);
+        </script>
         <br />
         TECHNOCRAT Architect’s & Engineer’s, Hingoli, Maharashtra, India.<br />
         Project: - Ashoka Park (Residential Building).<br />
@@ -388,45 +389,44 @@
 
         <br />
         <li><b>Internship: - June 2019 to July 2019.</b></li>
-            <div id="internship2-experience" <!-- Internship experience will be displayed here dynamically -->
-            </div>
+        <div id="internship2-experience" <!-- Internship2 experience will be displayed here dynamically -->
+        </div>
+        <script>
+            function calculateTotalExperience4(experiences4) {
+                let totalYears4 = 0;
+                let totalMonths4 = 0;
 
-            <script>
-                function calculateTotalExperience4(experiences) {
-                    let totalYears = 0;
-                    let totalMonths = 0;
-        
-                    experiences.forEach(experience => {
-                        let startDate = new Date(experience.start);
-                        let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
-        
-                        // If the experience is Infosys, use its end date as the current system date
-                        if (experience.end === undefined) {
-                            endDate = new Date(); // Today's date
-                        }
-        
-                        let diff = Math.abs(endDate - startDate);
-                        let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-                        let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-        
-                        totalYears += years;
-                        totalMonths += months;
-                    });
-        
-                    totalYears += Math.floor(totalMonths / 12);
-                    totalMonths %= 12;
-        
-                    return `Internship Experience: ${totalYears} years, ${totalMonths} months.`;
-                }
-        
-                // Define the array of experiences
-                let experiences = [
-                    { start: '2019-06-15', end: '2019-07-06' }, // Internship 2
-                ];
-        
-                // Call the function and update the content of the div with id "total-experience"
-                document.getElementById("internship2-experience").innerText = calculateTotalExperience4(experiences);
-            </script> 
+                experiences4.forEach(experience4 => {
+                    let startDate4 = new Date(experience4.start);
+                    let endDate4 = experience4.end ? new Date(experience4.end) : new Date(); // Use current system date if end date is not provided
+
+                    // If the experience is Infosys, use its end date as the current system date
+                    if (experience4.end === undefined) {
+                        endDate4 = new Date(); // Today's date
+                    }
+
+                    let diff4 = Math.abs(endDate4 - startDate4);
+                    let years4 = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+                    let months4 = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+
+                    totalYears4 += years;
+                    totalMonths4 += months;
+                });
+
+                totalYears4 += Math.floor(totalMonths4 / 12);
+                totalMonths4 %= 12;
+
+                return `Internship2 Experience: ${totalYears4} years, ${totalMonths4} months.`;
+            }
+
+            // Define the array of experiences
+            let experiences4 = [
+                { start: '2019-06-15', end: '2019-07-06' }, // Internship 1
+            ];
+
+            // Call the function and update the content of the div with id "total-experience"
+            document.getElementById("internship2-experience").innerText = calculateTotalExperience(experiences4);
+        </script>
         <br />
         MERIT CONSULTANCY, Kothrud, Pune, Maharashtra, India.<br />
         Project: - Atrium Skyward, Undri, Pune.(15500 SQM Area) (P+11F+T X 3 WINGS)<br />
@@ -510,37 +510,37 @@ echo getVisitorCount();
 ?>
 
 
-        <!-- hitwebcounter Code START -->
-        <div id="visitor-count">
-            </a>
-            <p>Total visitors:
-                <?php echo getVisitorCount(); ?>
-            </p>
-            <a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/" target="_blank">
-                <img src="https://hitwebcounter.com/counter/counter.php?page=12648923&style=0006&nbdigits=9&type=ip&initCount=<?php echo getVisitorCount(); ?>"
-                    title="Counter Widget" alt="Visit Website" border="0" />
+    <!-- hitwebcounter Code START -->
+    <div id="visitor-count">
+        </a>
+        <p>Total visitors:
+            <?php echo getVisitorCount(); ?>
+        </p>
+        <a href="https://krushnarthchondikar.github.io/My-Resume-Capstone-HTML-Project/" target="_blank">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=12648923&style=0006&nbdigits=9&type=ip&initCount=<?php echo getVisitorCount(); ?>"
+                title="Counter Widget" alt="Visit Website" border="0" />
 
-        </div>
-        <!-- hitwebcounter Code END -->
+    </div>
+    <!-- hitwebcounter Code END -->
 
-        <style>
-            #visitor-count {
-                position: fixed;
-                top: 0;
-                right: 0;
-                padding: 10px;
-                /* Adjust padding as needed */
-                background-color: #f0f0f0;
-                /* Optional background color */
-                font-size: 16px;
-                color: #333;
-            }
+    <style>
+        #visitor-count {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            /* Adjust padding as needed */
+            background-color: #f0f0f0;
+            /* Optional background color */
+            font-size: 16px;
+            color: #333;
+        }
 
-            #visitor-count p {
-                margin-top: 5px;
-                /* Adjust margin as needed */
-            }
-        </style>
+        #visitor-count p {
+            margin-top: 5px;
+            /* Adjust margin as needed */
+        }
+    </style>
 
 </body>
 
