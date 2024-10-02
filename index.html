@@ -109,58 +109,91 @@
     </div>
 
     <script>
-        function calculateTotalExperience(experiences) {
-            let totalYears = 0;
-            let totalMonths = 0;
-            // Use let for totalDays as well
-            let totalDays = 0;
-
-            experiences.forEach(experience => {
-                let startDate = new Date(experience.start);
-                let endDate = experience.end ? new Date(experience.end) : new Date(); // Use current system date if end date is not provided
-
-                // If the experience is Infosys, use its end date as the current system date
-                if (experience.end === undefined) {
-                    endDate = new Date(); // Today's date
-                }
-
-                // Get the difference in milliseconds, considering leap years
-                let diffInMilliseconds = endDate.getTime() - startDate.getTime();
-
-                // Calculate years
-                let years = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24 * 365.25)); // Consider average year length
-
-                // Calculate remaining milliseconds after years
-                let remainingMilliseconds = diffInMilliseconds % (1000 * 60 * 60 * 24 * 365.25);
-
-                // Calculate months from remaining milliseconds
-                let months = Math.floor(remainingMilliseconds / (1000 * 60 * 60 * 24 * 30));
-
-                // Calculate days from remaining milliseconds after months
-                totalDays = Math.floor(remainingMilliseconds % (1000 * 60 * 60 * 24 * 30) / (1000 * 60 * 60 * 24));
-
-                totalYears += years;
-                totalMonths += months;
-            });
-
-            // Adjust years based on total months
-            totalYears += Math.floor(totalMonths / 12);
-            totalMonths %= 12;
-
-            return `Total Experience: ${totalYears} years, ${totalMonths} months, ${totalDays} days.`;
+    function isLeapYear(year) {
+        // Leap year if divisible by 4, but not by 100, except when divisible by 400
+        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    }
+    
+    function daysInMonth(year, month) {
+        // Handle February for leap years
+        if (month === 1) { // February is month 1 in 0-based JavaScript months
+            return isLeapYear(year) ? 29 : 28;
         }
-
-        // Define the array of experiences
-        let experiences = [
-            { start: '2019-06-15', end: '2019-07-06' }, // Internship 1
-            { start: '2019-12-31', end: '2020-01-13' }, // Internship 2
-            { start: '2020-12-16', end: '2022-03-23' }, // Freelancing
-            { start: '2022-03-24' } // Infosys (no end date provided)
-        ];
-
-        // Call the function and update the content of the div
-        document.getElementById("total-experience").innerText = calculateTotalExperience(experiences);
+        
+        // For other months: April, June, September, November have 30 days
+        // January, March, May, July, August, October, December have 31 days
+        return [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+    }
+    
+    function calculateTotalExperience(experiences) {
+        let totalYears = 0;
+        let totalMonths = 0;
+        let totalDays = 0;
+    
+        experiences.forEach(experience => {
+            let startDate = new Date(experience.start);
+            let endDate = experience.end ? new Date(experience.end) : new Date(); // Use today if no end date provided
+    
+            let startYear = startDate.getFullYear();
+            let startMonth = startDate.getMonth(); // 0-based month index
+            let startDay = startDate.getDate();
+    
+            let endYear = endDate.getFullYear();
+            let endMonth = endDate.getMonth(); // 0-based month index
+            let endDay = endDate.getDate();
+    
+            // Calculate days
+            if (endDay < startDay) {
+                if (endMonth === 0) { // If January, go to December of previous year
+                    endMonth = 11;
+                    endYear -= 1;
+                } else {
+                    endMonth -= 1;
+                }
+                endDay += daysInMonth(endYear, endMonth); // Add days from the previous month
+            }
+            totalDays += endDay - startDay;
+    
+            // Calculate months
+            if (endMonth < startMonth) {
+                endMonth += 12;
+                endYear -= 1;
+            }
+            totalMonths += endMonth - startMonth;
+    
+            // Calculate years
+            totalYears += endYear - startYear;
+        });
+    
+        // Adjust for overflow in days and months
+        const monthWith31Days = [0, 2, 4, 6, 7, 9, 11]; // 0-based months with 31 days
+        const daysInCurrentMonth = (monthWith31Days.includes((new Date()).getMonth())) ? 31 : 30;
+    
+        if (totalDays >= daysInCurrentMonth) {
+            totalMonths += Math.floor(totalDays / daysInCurrentMonth);
+            totalDays = totalDays % daysInCurrentMonth;
+        }
+    
+        if (totalMonths >= 12) {
+            totalYears += Math.floor(totalMonths / 12);
+            totalMonths = totalMonths % 12;
+        }
+    
+        return `Total Experience: ${totalYears} years, ${totalMonths} months, ${totalDays} days.`;
+    }
+    
+    // Define the array of experiences
+    let experiences = [
+        { start: '2019-06-15', end: '2019-07-06' }, // Internship 1
+        { start: '2019-12-31', end: '2020-01-13' }, // Internship 2
+        { start: '2020-12-16', end: '2022-03-23' }, // Freelancing
+        { start: '2022-03-24' } // Infosys (no end date provided, so today is used)
+    ];
+    
+    // Call the function and update the content of the div
+    document.getElementById("total-experience").innerText = calculateTotalExperience(experiences);
     </script>
+    
     </b>
     <br />
     Young energetic & oriented Engineer. Who looking for a challenging position in the field of engineering.<br />
